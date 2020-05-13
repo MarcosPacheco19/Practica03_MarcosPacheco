@@ -5,6 +5,8 @@
  */
 package ec.edu.ups.modelo;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
 /**
@@ -18,8 +20,25 @@ public class Usuario {
     private String apellido;
     private String correo;
     private String contraseña;
-
+    //atributo de agregación
+    private List<Telefono> telefono;
     
+    
+    
+    //Constructores 
+    public Usuario(String cedula, String nombre, String apellido, String correo, String contraseña) {    
+        this.cedula = cedula;
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.correo = correo;
+        this.contraseña = contraseña;
+    }
+    
+     public Usuario(){
+        telefono = new ArrayList<>();
+    }
+    
+
     //Declaramos los getters y setters
     public String getCedula() {
         return cedula;

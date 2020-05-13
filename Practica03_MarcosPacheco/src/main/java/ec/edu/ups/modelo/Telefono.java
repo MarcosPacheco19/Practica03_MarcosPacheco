@@ -17,6 +17,19 @@ public class Telefono {
     private String numero;
     private String tipo;
     private String operadora;
+    
+    
+
+    //constructores
+    public Telefono(int codigo, String numero, String tipo, String operadora) {
+        this.codigo = codigo;
+        this.numero = numero;
+        this.tipo = tipo;
+        this.operadora = operadora;
+    }
+
+    
+    
 
     
     //Declaramos los getters y setters
