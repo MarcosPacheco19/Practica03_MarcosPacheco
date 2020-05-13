@@ -5,6 +5,8 @@
  */
 package ec.edu.ups.modelo;
 
+import java.util.Objects;
+
 /**
  *
  * @author xpacheco
@@ -48,6 +50,48 @@ public class Telefono {
 
     public void setOperadora(String operadora) {
         this.operadora = operadora;
+    }
+
+    @Override
+    public int hashCode() {
+        int hash = 5;
+        hash = 41 * hash + this.codigo;
+        hash = 41 * hash + Objects.hashCode(this.numero);
+        hash = 41 * hash + Objects.hashCode(this.tipo);
+        hash = 41 * hash + Objects.hashCode(this.operadora);
+        return hash;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Telefono other = (Telefono) obj;
+        if (this.codigo != other.codigo) {
+            return false;
+        }
+        if (!Objects.equals(this.numero, other.numero)) {
+            return false;
+        }
+        if (!Objects.equals(this.tipo, other.tipo)) {
+            return false;
+        }
+        if (!Objects.equals(this.operadora, other.operadora)) {
+            return false;
+        }
+        return true;
+    }
+
+    @Override
+    public String toString() {
+        return "Telefono{" + "codigo=" + codigo + ", numero=" + numero + ", tipo=" + tipo + ", operadora=" + operadora + '}';
     }
     
     

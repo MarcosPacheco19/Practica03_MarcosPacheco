@@ -9,6 +9,6 @@ package ec.edu.ups.idao;
  *
  * @author xpacheco
  */
-public class ITelefonoDAO {
+public interface ITelefonoDAO {
     
 }
