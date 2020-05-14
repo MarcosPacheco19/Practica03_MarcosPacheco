@@ -27,11 +27,11 @@ public class Telefono {
         this.tipo = tipo;
         this.operadora = operadora;
     }
+    
+        public Telefono() {
+        
+    }
 
-    
-    
-
-    
     //Declaramos los getters y setters
     public int getCodigo() {
         return codigo;

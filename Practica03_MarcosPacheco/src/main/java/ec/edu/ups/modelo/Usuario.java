@@ -26,18 +26,19 @@ public class Usuario {
     
     
     //Constructores 
-    public Usuario(String cedula, String nombre, String apellido, String correo, String contraseña) {    
+    public Usuario() {
+        telefono = new ArrayList<>();
+    }
+
+    public Usuario(String cedula, String nombre, String apellido, String correo, String contraseña, List<Telefono> telefono) {
         this.cedula = cedula;
         this.nombre = nombre;
         this.apellido = apellido;
         this.correo = correo;
         this.contraseña = contraseña;
-    }
-    
-     public Usuario(){
         telefono = new ArrayList<>();
     }
-    
+
 
     //Declaramos los getters y setters
     public String getCedula() {
@@ -121,6 +122,32 @@ public class Usuario {
         return true;
     }
 
+     //Agrega un telefono a la lista telefonos
+    public void agregarTelefono(Telefono telefono) {
+        telefono.add(telefono);
+
+    //Actualiza el telefono ingresado en la lista telefonos
+    public void editarTelefono(Telefono telefono) {
+        int index = telefono.indexOf(telefono);
+        telefono.set(index, telefono);
+    }
+
+    //Elimina el telefono ingresado de la lista telefonos
+    public void eliminarTelefono(Telefono telefono) {
+        int index = telefono.indexOf(telefono);
+        telefono.remove(index);
+    }
+
+    //Busca el Telefono correspondiente al codigo ingresado
+    public Telefono buscarTelefono(int codigo) {
+        return telefono.get(codigo);
+    }
+
+    //debuelve la lista telefonos
+    public List<Telefono> listarTelefonos() {
+        return telefono;
+    }
+    
     @Override
     public String toString() {
         return "Usuario{" + "cedula=" + cedula + ", nombre=" + nombre + ", apellido=" + apellido + ", correo=" + correo + ", contrase\u00f1a=" + contraseña + '}';
