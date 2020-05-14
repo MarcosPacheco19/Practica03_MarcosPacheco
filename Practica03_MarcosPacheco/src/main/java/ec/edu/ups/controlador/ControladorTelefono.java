@@ -66,9 +66,9 @@ public class ControladorTelefono {
         Collection<Telefono> telefonos;
         telefonos = telefonosDAO.findAll();
         if (!telefonos.isEmpty()) {
-            vistaTelefono.verTelfonos((List<Telefono>) telefonos);
+            vistaTelefono.verTelefonos((List<Telefono>) telefonos);
         } else {
-            System.out.println("Aun no tienes telefonos creados");
+            System.out.println("NO HAY TELEFONOS CREADOS");
         }
     }
 }

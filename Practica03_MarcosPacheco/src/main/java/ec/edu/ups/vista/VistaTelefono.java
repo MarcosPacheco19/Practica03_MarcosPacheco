@@ -74,7 +74,7 @@ public class VistaTelefono {
     }
     
 
-    public void verTelfonos(List<Telefono> telefonos) {
+    public void verTelefonos(List<Telefono> telefonos) {
         for (Telefono telefono : telefonos) {
             System.out.println("DATOS DEL TELEFONO\n " + telefono);
         }

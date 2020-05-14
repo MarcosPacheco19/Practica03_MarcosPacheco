@@ -21,22 +21,22 @@ public class Usuario {
     private String correo;
     private String contraseña;
     //atributo de agregación
-    private List<Telefono> telefono;
+    private List<Telefono> telefonos;
     
     
     
     //Constructores 
     public Usuario() {
-        telefono = new ArrayList<>();
+        telefonos = new ArrayList<>();
     }
 
-    public Usuario(String cedula, String nombre, String apellido, String correo, String contraseña, List<Telefono> telefono) {
+    public Usuario(String cedula, String nombre, String apellido, String correo, String contraseña) {
         this.cedula = cedula;
         this.nombre = nombre;
         this.apellido = apellido;
         this.correo = correo;
         this.contraseña = contraseña;
-        telefono = new ArrayList<>();
+        telefonos = new ArrayList<>();
     }
 
 
@@ -124,28 +124,28 @@ public class Usuario {
 
      //Agrega un telefono a la lista telefonos
     public void agregarTelefono(Telefono telefono) {
-        telefono.add(telefono);
-
+        telefonos.add(telefono);
+    }
     //Actualiza el telefono ingresado en la lista telefonos
-    public void editarTelefono(Telefono telefono) {
-        int index = telefono.indexOf(telefono);
-        telefono.set(index, telefono);
+    public void editarTelefono(Telefono telefono){
+        int index = telefonos.indexOf(telefono);
+        telefonos.set(index, telefono);
     }
 
-    //Elimina el telefono ingresado de la lista telefonos
+     //Elimina el telefono ingresado de la lista telefonos
     public void eliminarTelefono(Telefono telefono) {
-        int index = telefono.indexOf(telefono);
-        telefono.remove(index);
+        int index = telefonos.indexOf(telefono);
+        telefonos.remove(index);
     }
-
+    
     //Busca el Telefono correspondiente al codigo ingresado
     public Telefono buscarTelefono(int codigo) {
-        return telefono.get(codigo);
+        return telefonos.get(codigo);
     }
 
     //debuelve la lista telefonos
     public List<Telefono> listarTelefonos() {
-        return telefono;
+        return telefonos;
     }
     
     @Override

@@ -15,7 +15,7 @@ import java.util.Scanner;
  */
 public class VistaUsuario {
     
-    private Scanner leer;
+      private Scanner leer;
 
     //Constructor
     public VistaUsuario() {
@@ -24,40 +24,51 @@ public class VistaUsuario {
 
     //Obtiene los datos ingresado por teclado y genera un Usuario con dichos datos 
     public Usuario ingresarUsuario() {
-        System.out.println("Ingrese los datos del usuario: \n");
-        System.out.print("Cedula:  ");
+        System.out.println("INGRESAR DATOS DEL USUARIO: \n");
+        System.out.print("CEDULA:  ");
+        System.out.print("\t");
         String cedula = leer.nextLine();
-        System.out.print("Nombre:  ");
+        System.out.print("NOMBRE:  ");
+        System.out.print("\t");
         String nombre = leer.nextLine();
-        System.out.print("Apellido:  ");
+        System.out.print("AAPELLIDO:  ");
+        System.out.print("\t");
         String apellido = leer.nextLine();
-        System.out.print("Correo Electronico:  ");
+        System.out.print("CORREO ELECTRONICO:  ");
+        System.out.print("\t");
         String correo = leer.nextLine();
-        System.out.print("Contraseña:  ");
+        System.out.print("CONTRASEÑA:  ");
+        System.out.print("\t");
         String contraseña = leer.nextLine();
         return new Usuario(cedula, nombre, apellido, correo, contraseña);
     }
 
     //Obtiene algunos datos especificos ingresado por teclado y genera un Usuario con dichos datos
     public Usuario iniciarSecion() {
-        System.out.println("Porfavor ingrese sus datos para verificar su identidad\n");
-        System.out.print("Correo Electronico:  ->");
+        System.out.print("CORREO ELECTRONICO:");
+        System.out.print("\t");
         String correo = leer.nextLine();
-        System.out.print("Contraseña:  ->");
+        System.out.print("\n");
+        System.out.print("CONTRASEÑA:");
+        System.out.print("\t");
         String contraseña = leer.nextLine();
         return new Usuario(null, null, null, correo, contraseña);
     }
 
     //Obtiene los datos ingresado por teclado y genera un Usuario con dichos datos y con la clave ingresada como parametro
     public Usuario actualizarUsuario(String cedula) {
-        System.out.println("\nIngrese los nuevos datos\n");
-        System.out.print("Nombre:  ");
+        System.out.println("\nINGRESE LOS NUEVOS DATOS\n");
+        System.out.print("NOMBRE:");
+        System.out.print("\t");
         String nombre = leer.nextLine();
-        System.out.print("Apellido:  ");
+        System.out.print("APELLIDO:");
+        System.out.print("\t");
         String apellido = leer.nextLine();
-        System.out.print("Correo Electronico:  ");
+        System.out.print("CORREO ELECTRONICO:");
+        System.out.print("\t");
         String correo = leer.nextLine();
-        System.out.print("Contraseña:  ");
+        System.out.print("CONTRASEÑA:");
+        System.out.print("\t");
         String contraseña = leer.nextLine();
         return new Usuario(cedula, nombre, apellido, correo, contraseña);
     }
@@ -69,7 +80,7 @@ public class VistaUsuario {
 
     //Muestra en pantalla un Usuario ingresado como parametro
     public void verUsuario(Usuario usuario) {
-        System.out.println("Datos del Usuario: " + usuario);
+        System.out.println("DATOS DEL USUARIO: " + usuario);
     }
 
     //Muestra en pantalla una coleccion de Usuarios ingresada como parametro
@@ -77,8 +88,8 @@ public class VistaUsuario {
         int aux = 0;
         System.out.println("");
         for (Usuario usuario : usuarios){
-            System.out.println("Usuario #" + ++aux + ":");
-            System.out.println("Datos del Usuario: " + usuario);
+            System.out.println("USURIO NUMERO" + ++aux + ":");
+            System.out.println("DATOS DEL USUARIO: " + usuario);
             System.out.println("------------------------------------------------------");
         }
     }

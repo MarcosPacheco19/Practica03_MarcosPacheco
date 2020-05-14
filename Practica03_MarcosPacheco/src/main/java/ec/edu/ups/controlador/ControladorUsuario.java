@@ -78,14 +78,14 @@ public class ControladorUsuario {
         return null;
     }
 
-    //Muestra en pantalla todos los usuarios existentes en el DAO atraves de la vista
+    //Muestra en consola todos los usuarios que existen dentro del DAO atraves de la vista
     public void verUsuarios() {
         List<Usuario> usuarios;
         usuarios = usuarioDAO.findAll();
         if (!usuarios.isEmpty()) {
             vistaUsuario.verUsuarios(usuarios);
         } else {
-            System.out.println("Aun no tienes usuarios creados");
+            System.out.println("AUN NO HAY USUARIOS CREADOS");
         }
     }
 
@@ -104,9 +104,9 @@ public class ControladorUsuario {
         if (usuario.listarTelefonos().contains(telefono)) {
             usuario.eliminarTelefono(telefono);
             telefonoDAO.delete(telefono);
-            System.out.println("\n*********  Telefono eliminado exitosamente **********");
+            System.out.println("\nTELEFONO ELIMINADO");
         } else {
-            System.out.println("\nTelefono no encontrado en tu lista de telefonos");
+            System.out.println("\nTELEFONO NO ENCONTRADO");
         }
     }
 
@@ -119,22 +119,22 @@ public class ControladorUsuario {
         if (usuario.listarTelefonos().contains(telefono)) {
             usuario.editarTelefono(telefono);
             telefonoDAO.update(telefono);
-            System.out.println("\n*********  Telefono Actualizado exitosamente **********");
+            System.out.println("\nTELEFONO ACTUALIZADO");
         } else {
-            System.out.println("\nTelefono no encontrado en tu lista de telefonos");
+            System.out.println("\nTELEFONO NO ENCONTRADO");
         }
     }
     
     //Obtiene un Usuario atraves del DAO con la clave ingresada, Obtiene un Telefono atraves de la vista y compara si dicho telefono esta agregado en el Usuario
     public void buscarTelefono(String cedula) {
         usuario = usuarioDAO.read(cedula);
-        String codigo = vistaTelefono.buscarTelefono();
+        int codigo = vistaTelefono.buscarTelefono();
         telefono = telefonoDAO.read(codigo);
         if (usuario.listarTelefonos().contains(telefono)) {
-            System.out.println("\nTelefono encontrado: ");
+            System.out.println("\nTELEFONO ENCONTRADO: ");
             System.out.println(telefono);
         } else {
-            System.out.println("\nTelefono no encontrado");
+            System.out.println("\nEL TELEFONO NO EXISTE");
         }
     }
     
@@ -144,7 +144,7 @@ public class ControladorUsuario {
         if (!usuario.listarTelefonos().isEmpty()) {
             System.out.println(usuario.listarTelefonos());
         } else {
-            System.out.println("\nAun no tienes telefonos registrados");
+            System.out.println("\nNO HAY TELEFONOS REGISTRADOS");
         }
     }
 
