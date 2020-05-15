@@ -24,12 +24,11 @@ public class ControladorTelefono {
     //Objetos DAO
     private ITelefonoDAO telefonosDAO ;
 
-    //Constructor sin parametros
+    //Constructores
     public ControladorTelefono() {
         
     }
 
-    //Constructor con parametros
     public ControladorTelefono(VistaTelefono vistaTelefono, ITelefonoDAO telefonosDAO) {
         this.vistaTelefono = vistaTelefono;
         this.telefonosDAO = telefonosDAO;
