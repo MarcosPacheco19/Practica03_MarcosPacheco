@@ -20,7 +20,7 @@ import java.util.Scanner;
  */
 public class Principal {
     
-    private static final Scanner leer = new Scanner(System.in);
+    private static final Scanner opc = new Scanner(System.in);
     //DAO
     private static final TelefonoDAO telefonoDAO = new TelefonoDAO();
     private static final UsuarioDAO usarioDAO = new UsuarioDAO();
@@ -39,29 +39,24 @@ public class Principal {
         //Menu Principal
         while (opcion != 5) {
 
-            System.out.println("------------------------------------------------------");
-            System.out.println("              AGENDA TELEFONICA UPS");
-            System.out.println("------------------------------------------------------");
-            System.out.println("1)- Registrarse");
-            System.out.println("2)- Iniciar Sesion");
-            System.out.println("3)- Mostrar Usuarios Registrados");
-            System.out.println("4)- Mostrar Telefonos Registrados");
-            System.out.println("5)- Salir");
-            System.out.println("------------------------------------------------------");
-            System.out.print("Seleccione una opcion:  -> ");
-            opcion = leer.nextInt();
+            
+            System.out.println("              AGENDA TELEFONICA");  
+            System.out.println("[1] REGISTRARSE");
+            System.out.println("[2] INICIAR SESION");
+            System.out.println("[3] MOSRAR USUARIOS REGISTRADOS");
+            System.out.println("[4] MOSTRAR TELEFONOS REGISTRADOS");
+            System.out.println("[5] SALIR");
+            System.out.print("SELECCIONE LA OPCION: ");
+            opcion = opc.nextInt();
 
             switch (opcion) {
 
                 case 1:
-                    System.out.println("------------------------------------------------------");
                     controladorUsuario.registrar();
-                    System.out.println("\n*********  Te has registrado con exito  **************");
+                    System.out.println("\n         SE HA REGISTRADO   ");
                     break;
                 case 2:
-                    System.out.println("------------------------------------------------------");
                     System.out.println("                   INICIO DE SESION");
-                    System.out.println("------------------------------------------------------");
                     
                     String cedula = incioDeSesion();
                     if (cedula == null) {
@@ -73,23 +68,23 @@ public class Principal {
                     //Submenu
                     while (opcion2 != 9) {
 
-                        System.out.println("\n1)- Añadir un Telefono");
-                        System.out.println("2)- Editar telefono");
-                        System.out.println("3)- Eliminar Telefono");
-                        System.out.println("4)- Buscar Telefono");
-                        System.out.println("5)- Listar Telefonos");
-                        System.out.println("6)- Mostrar datos");
-                        System.out.println("7)- Editar Datos");
-                        System.out.println("8)- Eliminar Usuario");
-                        System.out.println("9)- Volver al menu");
-                        System.out.print("\nSeleccione una opcion:  -> ");
-                        opcion2 = leer.nextInt();
+                        System.out.println("\n[1] AÑADIR TELEFONO");
+                        System.out.println("[2] EDITAR TELEFONO");
+                        System.out.println("[3] ELIMINAR TELEFONO");
+                        System.out.println("[4] BUSCAR TELEFONO");
+                        System.out.println("[5] LISTAR TELEFONOS");
+                        System.out.println("[6] MOSTRAR DATOS");
+                        System.out.println("[7] EDITAR USUARIO");
+                        System.out.println("[8] ELIMINAR USUARIO");
+                        System.out.println("[9] VOLVER AL MENU PRINCIPAL");
+                        System.out.print("\nSELECCIONA LA OPCION: \t ");
+                        opcion2 = opc.nextInt();
 
                         switch (opcion2) {
 
                             case 1:
                                 controladorUsuario.agregarTelefono(cedula, controladorTelefono.crear());
-                                System.out.println("\n*********  Telefono añadido con exito  **************");
+                                System.out.println("\nTELEFONO AÑADIDO");
                                 break;
                             case 2:
                                 controladorUsuario.editarTelefono(cedula);
@@ -108,43 +103,32 @@ public class Principal {
                                 break;
                             case 7:
                                 controladorUsuario.actualizar(cedula);
-                                System.out.println("\n******  Datos actualizados correctamente **********");
+                                System.out.println("\n      DATOS ACTUALIZADOS ");
                                 break;
                             case 8:
                                 controladorUsuario.eliminar(cedula);
-                                System.out.println("\n*************  Usuario Eliminado  ****************");
-                                System.out.println("\n********   Volviendo al menu......   *************");
+                                System.out.println("\n          USUARIO ELIMINADO  ");
                                 opcion2 = 6;
                                 break;
                             case 9:
-                                System.out.println("\n********   Volviendo al menu......   *************");
                                 break;
-                            default:
-                                System.out.println("\n*****La opcion que eligio no existe*****\n");
 
                         }
 
                     }
                     break;
                 case 3:
-                    System.out.println("------------------------------------------------------");
                     System.out.println("                 USUARIOS REGISTRADOS");
-                    System.out.println("------------------------------------------------------");
                     controladorUsuario.verUsuarios();
                     break;
                 case 4:
-                    System.out.println("------------------------------------------------------");
                     System.out.println("                TELEFONOS REGISTRADOS");
-                    System.out.println("------------------------------------------------------");
                     controladorTelefono.verTelefonos();
                     break;
                 case 5:
-                    System.out.println("------------------------------------------------------");
                     System.out.println("                EL PROGRAMA A FINALIZADO");
-                    System.out.println("------------------------------------------------------\n");
+                    System.out.println("\n");
                     break;
-                default:
-                    System.out.println("\n*****La opcion que eligio no existe*****\n");
 
             }
 
@@ -156,10 +140,10 @@ public class Principal {
     public static String incioDeSesion() {
         Usuario usuarioAutentificado = controladorUsuario.Autentificar();
         if (usuarioAutentificado == null) {
-            System.out.println("\n****  Correo electronico o contraseña incorrectos  ****");
+            System.out.println("\n    CORREO ELECTRONICO O CONTRASEÑA INCORRECTOS ");
             return null;
         } else {
-            System.out.println("\n******** Bienvenido de nuevo " + usuarioAutentificado.getNombre() + " ********");
+            System.out.println("\n      BIENVENIDO " + usuarioAutentificado.getNombre() + " ");
             return usuarioAutentificado.getCedula();
         }
     }
