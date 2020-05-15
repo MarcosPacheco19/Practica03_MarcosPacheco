@@ -13,7 +13,7 @@ import java.util.Objects;
  */
 public class Telefono {
    
-  //Declaramos los Atributos
+  //Declaramos los Atributos de la clase Telefono
     private String codigo;
     private String numero;
     private String tipo;
