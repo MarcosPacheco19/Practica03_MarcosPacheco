@@ -7,9 +7,9 @@ package ec.edu.ups.dao;
 
 import ec.edu.ups.idao.ITelefonoDAO;
 import ec.edu.ups.modelo.Telefono;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
@@ -17,53 +17,39 @@ import java.util.List;
  */
 public class TelefonoDAO implements ITelefonoDAO{
      
-    private List<Telefono> listaTelefono;
+     //Diccionario de Telefonos
+    private Map<String, Telefono> telefonos;
 
+    //Constructor
     public TelefonoDAO() {
-        listaTelefono = new ArrayList<>();
+        telefonos = new HashMap<String, Telefono>();
     }
 
+    //Metodos de la Interface ITelefono
     @Override
     public void create(Telefono telefono) {
-        listaTelefono.add(telefono);
-    }
-
-    @Override
-    public Telefono read(int id) {
-        for (Telefono telefono : listaTelefono) {
-            if (telefono.getCodigo() == id) {
-                return telefono;
-            }
-        }
-        return null;
+        telefonos.put(telefono.getCodigo(), telefono);
     }
 
     @Override
     public void update(Telefono telefono) {
-         for (int i = 0; i < listaTelefono.size(); i++) {
-            Telefono t = listaTelefono.get(i);
-            if (t.getCodigo() == telefono.getCodigo()) {
-                listaTelefono.set(i, telefono);
-                break;
-            }
-        }
+        telefonos.put(telefono.getCodigo(), telefono);
     }
 
     @Override
     public void delete(Telefono telefono) {
-         Iterator<Telefono> it = listaTelefono.iterator();
-        while (it.hasNext()) {
-            Telefono t = it.next();
-            if (t.getCodigo() == telefono.getCodigo()) {
-                it.remove();
-                break;
-            }
-        }
+        telefonos.remove(telefono.getCodigo());
     }
 
     @Override
-    public List<Telefono> findAll() {
-        return listaTelefono;
+    public Collection<Telefono> findAll() {
+        Collection<Telefono> telefonosC = this.telefonos.values();
+        return telefonosC;
+    }
+
+    @Override
+    public Telefono read(String codigo) {
+        return telefonos.get(codigo);
     }
     
 }

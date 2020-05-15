@@ -20,7 +20,7 @@ import java.util.Scanner;
  */
 public class Principal {
     
-    private static final Scanner opc = new Scanner(System.in);
+    private static final Scanner leer = new Scanner(System.in);
     //DAO
     private static final TelefonoDAO telefonoDAO = new TelefonoDAO();
     private static final UsuarioDAO usarioDAO = new UsuarioDAO();
@@ -47,7 +47,7 @@ public class Principal {
             System.out.println("[4] MOSTRAR TELEFONOS REGISTRADOS");
             System.out.println("[5] SALIR");
             System.out.print("SELECCIONE LA OPCION: ");
-            opcion = opc.nextInt();
+            opcion = leer.nextInt();
 
             switch (opcion) {
 
@@ -57,7 +57,6 @@ public class Principal {
                     break;
                 case 2:
                     System.out.println("                   INICIO DE SESION");
-                    
                     String cedula = incioDeSesion();
                     if (cedula == null) {
                         break;
@@ -78,7 +77,7 @@ public class Principal {
                         System.out.println("[8] ELIMINAR USUARIO");
                         System.out.println("[9] VOLVER AL MENU PRINCIPAL");
                         System.out.print("\nSELECCIONA LA OPCION: \t ");
-                        opcion2 = opc.nextInt();
+                        opcion2 = leer.nextInt();
 
                         switch (opcion2) {
 

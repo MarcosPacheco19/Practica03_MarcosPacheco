@@ -11,7 +11,7 @@ import ec.edu.ups.modelo.Telefono;
 import ec.edu.ups.modelo.Usuario;
 import ec.edu.ups.vista.VistaTelefono;
 import ec.edu.ups.vista.VistaUsuario;
-import java.util.List;
+import java.util.Collection;
 
 /**
  *
@@ -68,8 +68,8 @@ public class ControladorUsuario {
 
     //Genera un Usuario atraves de la vista y compara con cada Usuario existente en el DAO
     public Usuario Autentificar() {
-        usuario = vistaUsuario.iniciarSecion();
-        List<Usuario> usuarios = usuarioDAO.findAll();
+        usuario = vistaUsuario.iniciarSesion();
+        Collection<Usuario> usuarios = usuarioDAO.findAll();
         for (Usuario usuario1 : usuarios) {
             if (usuario.equals(usuario1)) {
                 return usuario1;
@@ -80,7 +80,7 @@ public class ControladorUsuario {
 
     //Muestra en consola todos los usuarios que existen dentro del DAO atraves de la vista
     public void verUsuarios() {
-        List<Usuario> usuarios;
+        Collection<Usuario> usuarios;
         usuarios = usuarioDAO.findAll();
         if (!usuarios.isEmpty()) {
             vistaUsuario.verUsuarios(usuarios);

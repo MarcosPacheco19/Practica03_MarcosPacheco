@@ -20,12 +20,10 @@ public class Usuario {
     private String apellido;
     private String correo;
     private String contraseña;
-    //atributo de agregación
+    //atributo de agregacion
     private List<Telefono> telefonos;
-    
-    
-    
-    //Constructores 
+
+    //constructores
     public Usuario() {
         telefonos = new ArrayList<>();
     }
@@ -39,8 +37,7 @@ public class Usuario {
         telefonos = new ArrayList<>();
     }
 
-
-    //Declaramos los getters y setters
+    //Metodos Get y Set
     public String getCedula() {
         return cedula;
     }
@@ -81,14 +78,39 @@ public class Usuario {
         this.contraseña = contraseña;
     }
 
+    //Agrega un telefono a la lista telefonos
+    public void agregarTelefono(Telefono telefono) {
+        telefonos.add(telefono);
+    }
+
+    //Actualiza el telefono ingresado en la lista telefonos
+    public void editarTelefono(Telefono telefono) {
+        int index = telefonos.indexOf(telefono);
+        telefonos.set(index, telefono);
+    }
+
+    //Elimina el telefono ingresado de la lista telefonos
+    public void eliminarTelefono(Telefono telefono) {
+        int index = telefonos.indexOf(telefono);
+        telefonos.remove(index);
+    }
+
+    //Busca el Telefono correspondiente al codigo ingresado
+    public Telefono buscarTelefono(int codigo) {
+        return telefonos.get(codigo);
+    }
+
+    //debuelve la lista telefonos
+    public List<Telefono> listarTelefonos() {
+        return telefonos;
+    }
+
+    //Metodos de la clase Object
     @Override
     public int hashCode() {
-        int hash = 7;
-        hash = 73 * hash + Objects.hashCode(this.cedula);
-        hash = 73 * hash + Objects.hashCode(this.nombre);
-        hash = 73 * hash + Objects.hashCode(this.apellido);
-        hash = 73 * hash + Objects.hashCode(this.correo);
-        hash = 73 * hash + Objects.hashCode(this.contraseña);
+        int hash = 3;
+        hash = 53 * hash + Objects.hashCode(this.correo);
+        hash = 53 * hash + Objects.hashCode(this.contraseña);
         return hash;
     }
 
@@ -104,15 +126,6 @@ public class Usuario {
             return false;
         }
         final Usuario other = (Usuario) obj;
-        if (!Objects.equals(this.cedula, other.cedula)) {
-            return false;
-        }
-        if (!Objects.equals(this.nombre, other.nombre)) {
-            return false;
-        }
-        if (!Objects.equals(this.apellido, other.apellido)) {
-            return false;
-        }
         if (!Objects.equals(this.correo, other.correo)) {
             return false;
         }
@@ -122,37 +135,14 @@ public class Usuario {
         return true;
     }
 
-     //Agrega un telefono a la lista telefonos
-    public void agregarTelefono(Telefono telefono) {
-        telefonos.add(telefono);
-    }
-    //Actualiza el telefono ingresado en la lista telefonos
-    public void editarTelefono(Telefono telefono){
-        int index = telefonos.indexOf(telefono);
-        telefonos.set(index, telefono);
-    }
-
-     //Elimina el telefono ingresado de la lista telefonos
-    public void eliminarTelefono(Telefono telefono) {
-        int index = telefonos.indexOf(telefono);
-        telefonos.remove(index);
-    }
-    
-    //Busca el Telefono correspondiente al codigo ingresado
-    public Telefono buscarTelefono(int codigo) {
-        return telefonos.get(codigo);
-    }
-
-    //debuelve la lista telefonos
-    public List<Telefono> listarTelefonos() {
-        return telefonos;
-    }
-    
     @Override
     public String toString() {
-        return "Usuario{" + "cedula=" + cedula + ", nombre=" + nombre + ", apellido=" + apellido + ", correo=" + correo + ", contrase\u00f1a=" + contraseña + '}';
+        if (!listarTelefonos().isEmpty()) {
+            System.out.println("Telefonos: " + listarTelefonos());
+        } else {
+            System.out.println("Aun no tiene ningun telefono registrado");
+        }
+        return "{" + "cedula=" + cedula + ", nombre=" + nombre + ", apellido=" + apellido + ", correo=" + correo + ", contrase\u00f1a=" + contraseña + '}';
     }
-    
-    
     
 }

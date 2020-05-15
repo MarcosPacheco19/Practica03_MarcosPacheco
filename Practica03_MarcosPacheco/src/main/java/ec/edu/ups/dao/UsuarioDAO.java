@@ -7,9 +7,9 @@ package ec.edu.ups.dao;
 
 import ec.edu.ups.idao.IUsuarioDAO;
 import ec.edu.ups.modelo.Usuario;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.Collection;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
@@ -17,54 +17,40 @@ import java.util.List;
  */
 public class UsuarioDAO implements IUsuarioDAO{
     
-    private List<Usuario> listaUsuario;
-    
-    public  UsuarioDAO() {
-        listaUsuario = new ArrayList<>();
+   //Diccionario de Usuarios
+    private Map<String, Usuario> usuarios;
+
+    //Constructor
+    public UsuarioDAO() {
+        usuarios = new HashMap<String, Usuario>();
     }
 
+    //Metodos de la Interface IUsuario
     @Override
     public void create(Usuario usuario) {
-         listaUsuario.add(usuario);
+        usuarios.put(usuario.getCedula(), usuario);
     }
 
     @Override
     public Usuario read(String cedula) {
-       for (Usuario usuario : listaUsuario) {
-            if (usuario.getCedula().equals(cedula)) {
-                return usuario;
-            }
-        }
-        return null;
+        return usuarios.get(cedula);
     }
 
     @Override
     public void update(Usuario usuario) {
-        for (int i = 0; i < listaUsuario.size(); i++) {
-            Usuario u = listaUsuario.get(i);
-            if (u.getCedula() == usuario.getCedula()) {
-                listaUsuario.set(i, usuario);
-                break;
-            }
-        }
-
+        usuarios.put(usuario.getCedula(), usuario);
     }
 
     @Override
     public void delete(Usuario usuario) {
-       Iterator<Usuario> it = listaUsuario.iterator();
-        while (it.hasNext()) {
-            Usuario u = it.next();
-            if (u.getCedula() == usuario.getCedula()) {
-                it.remove();
-                break;
-            }
-        }
+        usuarios.remove(usuario.getCedula());
     }
 
     @Override
-    public List<Usuario> findAll() {
-        return listaUsuario;
+    public Collection<Usuario> findAll() {
+        Collection<Usuario> usuarios = this.usuarios.values();
+        return usuarios;
     }
+    
 
 }

@@ -6,7 +6,7 @@
 package ec.edu.ups.vista;
 
 import ec.edu.ups.modelo.Telefono;
-import java.util.List;
+import java.util.Collection;
 import java.util.Scanner;
 
 /**
@@ -74,7 +74,7 @@ public class VistaTelefono {
     }
     
 
-    public void verTelefonos(List<Telefono> telefonos) {
+    public void verTelefonos(Collection<Telefono> telefonos) {
         for (Telefono telefono : telefonos) {
             System.out.println("DATOS DEL TELEFONO\n " + telefono);
         }

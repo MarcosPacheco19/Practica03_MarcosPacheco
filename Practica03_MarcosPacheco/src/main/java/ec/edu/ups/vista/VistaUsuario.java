@@ -6,7 +6,7 @@
 package ec.edu.ups.vista;
 
 import ec.edu.ups.modelo.Usuario;
-import java.util.List;
+import java.util.Collection;
 import java.util.Scanner;
 
 /**
@@ -44,7 +44,7 @@ public class VistaUsuario {
     }
 
     //Obtiene algunos datos especificos ingresado por teclado y genera un Usuario con dichos datos
-    public Usuario iniciarSecion() {
+    public Usuario iniciarSesion() {
         System.out.print("CORREO ELECTRONICO:");
         System.out.print("\t");
         String correo = leer.nextLine();
@@ -84,7 +84,7 @@ public class VistaUsuario {
     }
 
     //Muestra en pantalla una coleccion de Usuarios ingresada como parametro
-    public void verUsuarios(List<Usuario> usuarios) {
+    public void verUsuarios(Collection<Usuario> usuarios) {
         int aux = 0;
         System.out.println("");
         for (Usuario usuario : usuarios){

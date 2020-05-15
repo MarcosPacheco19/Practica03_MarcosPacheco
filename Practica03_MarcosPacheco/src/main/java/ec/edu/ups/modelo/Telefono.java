@@ -12,32 +12,32 @@ import java.util.Objects;
  * @author xpacheco
  */
 public class Telefono {
-    //Declaramos los atributos de la clase Telefono
-    private int codigo;
+   
+  //Declaramos los Atributos
+    private String codigo;
     private String numero;
     private String tipo;
     private String operadora;
-    
-    
 
-    //constructores
-    public Telefono(int codigo, String numero, String tipo, String operadora) {
+    //Constructor sin parametros
+    public Telefono() {
+        
+    }
+
+    //Constructor con parametros
+    public Telefono(String codigo, String numero, String tipo, String operadora) {
         this.codigo = codigo;
         this.numero = numero;
         this.tipo = tipo;
         this.operadora = operadora;
     }
-    
-        public Telefono() {
-        
-    }
 
-    //Declaramos los getters y setters
-    public int getCodigo() {
+    //Metodos Get y Set
+    public String getCodigo() {
         return codigo;
     }
 
-    public void setCodigo(int codigo) {
+    public void setCodigo(String codigo) {
         this.codigo = codigo;
     }
 
@@ -65,13 +65,11 @@ public class Telefono {
         this.operadora = operadora;
     }
 
+    //Metodos de la clase Object
     @Override
     public int hashCode() {
-        int hash = 5;
-        hash = 41 * hash + this.codigo;
-        hash = 41 * hash + Objects.hashCode(this.numero);
-        hash = 41 * hash + Objects.hashCode(this.tipo);
-        hash = 41 * hash + Objects.hashCode(this.operadora);
+        int hash = 7;
+        hash = 53 * hash + Objects.hashCode(this.codigo);
         return hash;
     }
 
@@ -87,16 +85,7 @@ public class Telefono {
             return false;
         }
         final Telefono other = (Telefono) obj;
-        if (this.codigo != other.codigo) {
-            return false;
-        }
-        if (!Objects.equals(this.numero, other.numero)) {
-            return false;
-        }
-        if (!Objects.equals(this.tipo, other.tipo)) {
-            return false;
-        }
-        if (!Objects.equals(this.operadora, other.operadora)) {
+        if (!Objects.equals(this.codigo, other.codigo)) {
             return false;
         }
         return true;
@@ -106,8 +95,6 @@ public class Telefono {
     public String toString() {
         return "Telefono{" + "codigo=" + codigo + ", numero=" + numero + ", tipo=" + tipo + ", operadora=" + operadora + '}';
     }
-    
-    
-    
+   
     
 }

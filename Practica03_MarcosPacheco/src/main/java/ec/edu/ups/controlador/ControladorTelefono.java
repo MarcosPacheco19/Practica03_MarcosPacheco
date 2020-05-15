@@ -6,11 +6,10 @@
 package ec.edu.ups.controlador;
 
 import ec.edu.ups.idao.ITelefonoDAO;
-import ec.edu.ups.vista.VistaTelefono;
 import ec.edu.ups.modelo.Telefono;
 import ec.edu.ups.vista.VistaTelefono;
 import java.util.Collection;
-import java.util.List;
+
 
 /**
  *
@@ -62,12 +61,13 @@ public class ControladorTelefono {
     
     //Muestra todos los Telefonos existentes en el DAO
     public void verTelefonos() {
-        Collection<Telefono> telefonos;
+     Collection<Telefono> telefonos;
         telefonos = telefonosDAO.findAll();
         if (!telefonos.isEmpty()) {
-            vistaTelefono.verTelefonos((List<Telefono>) telefonos);
+            vistaTelefono.verTelefonos(telefonos);
         } else {
-            System.out.println("NO HAY TELEFONOS CREADOS");
+                System.out.println("NO HAY TELEFONOS CREADOS");
         }
     }
+    
 }
