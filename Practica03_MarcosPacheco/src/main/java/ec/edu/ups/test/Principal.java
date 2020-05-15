@@ -63,9 +63,9 @@ public class Principal {
                         break;
                     }
 
-                    //Dato en en donde se guardar la opcion que escoja el usuario
+                    //Dato en en donde se guardar la opcion que escoja el usuario al ingresar al programa
                     int opcion2 = 0;
-                    //Submenu
+                    //Menu secundario o submenu
                     while (opcion2 != 9) {
 
                         System.out.println("\n[1] AÑADIR TELEFONO");
