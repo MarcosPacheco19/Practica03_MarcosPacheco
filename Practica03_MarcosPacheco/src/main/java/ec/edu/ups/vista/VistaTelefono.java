@@ -26,13 +26,13 @@ public class VistaTelefono {
         entrada = new Scanner(System.in);
         System.out.println("INGRESE LOS DATOS DEL TELEFONO");
         System.out.println("INGRESE EL CODIGO");
-        int codigo = entrada.nextInt();
+        String codigo = entrada.nextLine();
         System.out.println("INGRESE EL TIPO");
-        String tipo = entrada.next();
+        String tipo = entrada.nextLine();
         System.out.println("INGRESE EL NUMERO");
-        String numero = entrada.next();
+        String numero = entrada.nextLine();
         System.out.println("INGRESE LA OPERADORA");
-        String operadora = entrada.next();
+        String operadora = entrada.nextLine();
         return new Telefono(codigo, tipo, numero, operadora);
         
     }
@@ -40,12 +40,12 @@ public class VistaTelefono {
     public Telefono actualizarTelefono() {
         entrada = new Scanner(System.in);
         System.out.println("INGRESE EL TELEFONO QUE DESEA ACTUALIZAR");
-        int codigo = entrada.nextInt();
+        String codigo = entrada.nextLine();
         System.out.println("INGRESE LOS NUEVOS DATOS");
         System.out.println("INGRESE EL TIPO");
-        String tipo = entrada.next();
+        String tipo = entrada.nextLine();
         System.out.println("INGRESE EL NUMERO");
-        String numero = entrada.next();
+        String numero = entrada.nextLine();
         System.out.println("INGRESE LA OPERADORA");
         String operadora = entrada.next();
         return new Telefono(codigo, tipo, numero, operadora);
@@ -56,15 +56,14 @@ public class VistaTelefono {
     public Telefono eliminarTelefono() {
         entrada = new Scanner(System.in);
         System.out.println("INGRESE EL CODIGO DEL TELEFONO A ELIMINAR");
-        int codigo = entrada.nextInt();
+        String codigo = entrada.nextLine();
         return new Telefono(codigo, null, null, null);
     }
     
 
-    public int buscarTelefono() {
-        entrada = new Scanner(System.in);
-        System.out.println("INGRESA EL CODIGO DEL TELEFONO A BUSCAR");
-        int codigo = entrada.nextInt();
+     public String buscarTelefono() {
+        System.out.print("\nIngrese el codigo del Telefono buscado:  ");
+        String codigo = entrada.nextLine();
         return codigo;
     }
     

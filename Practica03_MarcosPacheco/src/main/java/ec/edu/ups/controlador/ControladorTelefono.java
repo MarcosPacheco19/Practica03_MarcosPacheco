@@ -42,7 +42,7 @@ public class ControladorTelefono {
     
     //Llama al DAO para obtener Telefono y lo muestra en pantalla atraves de la vista
     public void verTelefono() {
-        int codigo = vistaTelefono.buscarTelefono();
+        String codigo = vistaTelefono.buscarTelefono();
         telefono = telefonosDAO.read(codigo);
         vistaTelefono.verTelefono(telefono);
     }

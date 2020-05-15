@@ -128,7 +128,7 @@ public class ControladorUsuario {
     //Obtiene un Usuario atraves del DAO con la clave ingresada, Obtiene un Telefono atraves de la vista y compara si dicho telefono esta agregado en el Usuario
     public void buscarTelefono(String cedula) {
         usuario = usuarioDAO.read(cedula);
-        int codigo = vistaTelefono.buscarTelefono();
+        String codigo = vistaTelefono.buscarTelefono();
         telefono = telefonoDAO.read(codigo);
         if (usuario.listarTelefonos().contains(telefono)) {
             System.out.println("\nTELEFONO ENCONTRADO: ");
