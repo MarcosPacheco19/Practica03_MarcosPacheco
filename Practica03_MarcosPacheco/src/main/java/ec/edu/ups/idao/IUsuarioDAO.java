@@ -14,7 +14,9 @@ import java.util.Collection;
  * @author xpacheco
  */
 public interface IUsuarioDAO {
+    
     //Métodos CRUD
+    
     public void create(Usuario usuario);
     public Usuario read(String cedula);
     public void update(Usuario usuario);

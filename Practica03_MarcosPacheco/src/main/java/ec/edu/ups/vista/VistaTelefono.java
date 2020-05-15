@@ -21,8 +21,10 @@ public class VistaTelefono {
         entrada = new Scanner(System.in);
     }
     
+    
+    //Metodo para ingresar un telefono
     public Telefono ingresarTelefono() {
-        
+       
         entrada = new Scanner(System.in);
         System.out.println("INGRESE LOS DATOS DEL TELEFONO");
         System.out.println("INGRESE EL CODIGO");
@@ -37,7 +39,10 @@ public class VistaTelefono {
         
     }
 
+    
+    //Metodo para actualizar el telefono
     public Telefono actualizarTelefono() {
+        
         entrada = new Scanner(System.in);
         System.out.println("INGRESE EL TELEFONO QUE DESEA ACTUALIZAR");
         String codigo = entrada.nextLine();
@@ -52,8 +57,9 @@ public class VistaTelefono {
         
     }
 
-    
+    //Metodo para eliminar un numero de telefono
     public Telefono eliminarTelefono() {
+        
         entrada = new Scanner(System.in);
         System.out.println("INGRESE EL CODIGO DEL TELEFONO A ELIMINAR");
         String codigo = entrada.nextLine();
@@ -61,19 +67,25 @@ public class VistaTelefono {
     }
     
 
+    //metodo para buscar el telefono con el codigo del mismo
      public String buscarTelefono() {
-        System.out.print("\nIngrese el codigo del Telefono buscado:  ");
+         
+        System.out.print("\nINGRESE EL CODIGO DEL TELEFONO A BUSCAR:  ");
         String codigo = entrada.nextLine();
         return codigo;
     }
     
 
+     //metodo para ver los telefonos 
     public void verTelefono(Telefono telefono) {
+        
         System.out.println("DATOS DEL TELEFONO\n " + telefono);
     }
     
 
+    //metodo para ver todos los telefonos guarados en un usuario
     public void verTelefonos(Collection<Telefono> telefonos) {
+        
         for (Telefono telefono : telefonos) {
             System.out.println("DATOS DEL TELEFONO\n " + telefono);
         }

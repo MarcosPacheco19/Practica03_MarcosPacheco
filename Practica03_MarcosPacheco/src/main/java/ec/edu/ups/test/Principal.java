@@ -20,7 +20,7 @@ import java.util.Scanner;
  */
 public class Principal {
     
-    private static final Scanner leer = new Scanner(System.in);
+    private static final Scanner ingreso = new Scanner(System.in);
     //DAO
     private static final TelefonoDAO telefonoDAO = new TelefonoDAO();
     private static final UsuarioDAO usarioDAO = new UsuarioDAO();
@@ -36,6 +36,7 @@ public class Principal {
 
         //Dato en el que se guardara la opcion que escoja el usuario 
         int opcion = 0;
+        
         //Menu Principal
         while (opcion != 5) {
 
@@ -47,7 +48,8 @@ public class Principal {
             System.out.println("[4] MOSTRAR TELEFONOS REGISTRADOS");
             System.out.println("[5] SALIR");
             System.out.print("SELECCIONE LA OPCION: ");
-            opcion = leer.nextInt();
+            System.out.print("\t");
+            opcion = ingreso.nextInt();
 
             switch (opcion) {
 
@@ -62,8 +64,9 @@ public class Principal {
                         break;
                     }
 
-                    //Dato en en donde se guardar la opcion que escoja el usuario al ingresar al programa
+                    //Dato en donde se guarda la opcion que escoja el usuario al ingresar al programa para entrar al menu secundario
                     int opcion2 = 0;
+                    
                     //Menu secundario o submenu
                     while (opcion2 != 9) {
 
@@ -77,7 +80,7 @@ public class Principal {
                         System.out.println("[8] ELIMINAR USUARIO");
                         System.out.println("[9] VOLVER AL MENU PRINCIPAL");
                         System.out.print("\nSELECCIONA LA OPCION: \t ");
-                        opcion2 = leer.nextInt();
+                        opcion2 = ingreso.nextInt();
 
                         switch (opcion2) {
 
@@ -135,14 +138,14 @@ public class Principal {
 
     }
 
-    //Llama al metodo Autentificar para Generar un Usuario y si este es diferente de null obtener el nombre y la cedula de dicho usuario
+    //Llama al metodo Autentificar para Generar un Usuario y si este es diferente de null se puede obtener obtener el nombre y la cedula de dicho usuario
     public static String incioDeSesion() {
         Usuario usuarioAutentificado = controladorUsuario.Autentificar();
         if (usuarioAutentificado == null) {
             System.out.println("\n    CORREO ELECTRONICO O CONTRASEÑA INCORRECTOS ");
             return null;
         } else {
-            System.out.println("\n      BIENVENIDO " + usuarioAutentificado.getNombre() + " ");
+            System.out.println("\n      BIENVENIDO " + "\n      " + usuarioAutentificado.getNombre() + " ");
             return usuarioAutentificado.getCedula();
         }
     }

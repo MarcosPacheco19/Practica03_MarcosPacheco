@@ -23,7 +23,7 @@ public class Usuario {
     //atributo de agregacion
     private List<Telefono> telefonos;
 
-    //constructores
+    //Constructores
     public Usuario() {
         telefonos = new ArrayList<>();
     }
@@ -78,7 +78,7 @@ public class Usuario {
         this.contraseña = contraseña;
     }
 
-    //Agrega un telefono a la lista telefonos
+    //Agrega un numero telefono a la lista telefonos
     public void agregarTelefono(Telefono telefono) {
         telefonos.add(telefono);
     }
@@ -100,12 +100,12 @@ public class Usuario {
         return telefonos.get(codigo);
     }
 
-    //debuelve la lista telefonos
+    //devuelve la lista telefonos
     public List<Telefono> listarTelefonos() {
         return telefonos;
     }
 
-    //Metodos de la clase Object
+    //HashCode , Equals y toString
     @Override
     public int hashCode() {
         int hash = 3;
@@ -138,11 +138,11 @@ public class Usuario {
     @Override
     public String toString() {
         if (!listarTelefonos().isEmpty()) {
-            System.out.println("Telefonos: " + listarTelefonos());
+            System.out.println("TELEFONOS: " + listarTelefonos());
         } else {
-            System.out.println("Aun no tiene ningun telefono registrado");
+            System.out.println("NO HAY TELEFONOS REGISTRADOS");
         }
-        return "{" + "cedula=" + cedula + ", nombre=" + nombre + ", apellido=" + apellido + ", correo=" + correo + ", contrase\u00f1a=" + contraseña + '}';
+        return "cedula\t" + cedula + "\nNOMBRE\t" + nombre + "\nAPELLIDO\t" + apellido + "\nCORREO\t" + correo + "\nCONTRASEÑA\t" + contraseña + '}';
     }
     
 }

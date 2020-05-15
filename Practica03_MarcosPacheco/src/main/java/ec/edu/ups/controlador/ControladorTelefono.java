@@ -59,7 +59,8 @@ public class ControladorTelefono {
         telefonosDAO.delete(telefono);
     }
     
-    //Muestra todos los Telefonos existentes en el DAO
+    //Muestra todos los Telefonos existentes en el DAO, en caso de no existir se envia un mensaje 
+    //al usuario de que no existe
     public void verTelefonos() {
      Collection<Telefono> telefonos;
         telefonos = telefonosDAO.findAll();

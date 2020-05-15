@@ -14,7 +14,9 @@ import java.util.Collection;
  * @author xpacheco
  */
 public interface ITelefonoDAO {
+    
     //Métodos CRUD
+    
     public void create(Telefono telefono);
     public Telefono read(String codigo);
     public void update(Telefono telefono);

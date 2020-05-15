@@ -15,11 +15,11 @@ import java.util.Scanner;
  */
 public class VistaUsuario {
     
-      private Scanner leer;
+      private Scanner ingreso;
 
     //Constructor
     public VistaUsuario() {
-        leer = new Scanner(System.in);
+        ingreso = new Scanner(System.in);
     }
 
     //Obtiene los datos ingresado por teclado y genera un Usuario con dichos datos 
@@ -27,19 +27,19 @@ public class VistaUsuario {
         System.out.println("INGRESAR DATOS DEL USUARIO: \n");
         System.out.print("CEDULA:  ");
         System.out.print("\t");
-        String cedula = leer.nextLine();
+        String cedula = ingreso.nextLine();
         System.out.print("NOMBRE:  ");
         System.out.print("\t");
-        String nombre = leer.nextLine();
-        System.out.print("AAPELLIDO:  ");
+        String nombre = ingreso.nextLine();
+        System.out.print("APELLIDO:  ");
         System.out.print("\t");
-        String apellido = leer.nextLine();
+        String apellido = ingreso.nextLine();
         System.out.print("CORREO ELECTRONICO:  ");
         System.out.print("\t");
-        String correo = leer.nextLine();
+        String correo = ingreso.nextLine();
         System.out.print("CONTRASEÑA:  ");
         System.out.print("\t");
-        String contraseña = leer.nextLine();
+        String contraseña = ingreso.nextLine();
         return new Usuario(cedula, nombre, apellido, correo, contraseña);
     }
 
@@ -47,11 +47,11 @@ public class VistaUsuario {
     public Usuario iniciarSesion() {
         System.out.print("CORREO ELECTRONICO:");
         System.out.print("\t");
-        String correo = leer.nextLine();
+        String correo = ingreso.nextLine();
         System.out.print("\n");
         System.out.print("CONTRASEÑA:");
         System.out.print("\t");
-        String contraseña = leer.nextLine();
+        String contraseña = ingreso.nextLine();
         return new Usuario(null, null, null, correo, contraseña);
     }
 
@@ -60,16 +60,16 @@ public class VistaUsuario {
         System.out.println("\nINGRESE LOS NUEVOS DATOS\n");
         System.out.print("NOMBRE:");
         System.out.print("\t");
-        String nombre = leer.nextLine();
+        String nombre = ingreso.nextLine();
         System.out.print("APELLIDO:");
         System.out.print("\t");
-        String apellido = leer.nextLine();
+        String apellido = ingreso.nextLine();
         System.out.print("CORREO ELECTRONICO:");
         System.out.print("\t");
-        String correo = leer.nextLine();
+        String correo = ingreso.nextLine();
         System.out.print("CONTRASEÑA:");
         System.out.print("\t");
-        String contraseña = leer.nextLine();
+        String contraseña = ingreso.nextLine();
         return new Usuario(cedula, nombre, apellido, correo, contraseña);
     }
 

@@ -19,12 +19,12 @@ public class Telefono {
     private String tipo;
     private String operadora;
 
-    //Constructor sin parametros
+    //Constructores
     public Telefono() {
         
     }
 
-    //Constructor con parametros
+
     public Telefono(String codigo, String numero, String tipo, String operadora) {
         this.codigo = codigo;
         this.numero = numero;
@@ -63,9 +63,10 @@ public class Telefono {
 
     public void setOperadora(String operadora) {
         this.operadora = operadora;
+        
     }
-
-    //Metodos de la clase Object
+  //HashCode , Equals y toString
+    
     @Override
     public int hashCode() {
         int hash = 7;
@@ -93,7 +94,7 @@ public class Telefono {
 
     @Override
     public String toString() {
-        return "Telefono{" + "codigo=" + codigo + ", numero=" + numero + ", tipo=" + tipo + ", operadora=" + operadora + '}';
+        return "TELEFONO " + "\nCODIGO\t" + codigo + "\nNUMERO\t" + numero + "\nTIPO\t" + tipo + "\nOPERADPRA\t" + operadora;
     }
    
     
